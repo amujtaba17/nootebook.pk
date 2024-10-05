@@ -1,0 +1,57 @@
+//Post fetching important query//
+
+                    SELECT * FROM post p
+                    INNER JOIN blog b
+                    ON p.`blog_id` = b.`blog_id`
+                    INNER JOIN post_category pc
+                    ON pc.`post_id` = p.`post_id`
+                    INNER JOIN category c
+                    ON pc.`category_id` = c.`category_id`
+                    inner join user u on u.`user_id`=b.`user_id`               
+                    order by p.`post_id` desc
+
+
+//only active post show honi chiye
+
+                    SELECT * FROM post p
+                    INNER JOIN blog b
+                    ON p.`blog_id` = b.`blog_id`
+                    INNER JOIN post_category pc
+                    ON pc.`post_id` = p.`post_id`
+                    INNER JOIN category c
+                    ON pc.`category_id` = c.`category_id`
+                    inner join user u on u.`user_id`=b.`user_id`
+                    where p.`post_status`='Active'               
+                    order by p.`post_id` desc
+
+//to show post through query srting
+
+                    SELECT * FROM post p
+                    INNER JOIN blog b
+                    ON p.`blog_id` = b.`blog_id`
+                    INNER JOIN post_category pc
+                    ON pc.`post_id` = p.`post_id`
+                    INNER JOIN category c
+                    ON pc.`category_id` = c.`category_id`
+                    inner join user u on u.`user_id`=b.`user_id`
+                    where p.`post_id`='8' //from query sreting read more              
+                    order by p.`post_id` desc
+
+//If we want attchments_id set then run this querry
+
+          SELECT * FROM post p
+                    INNER JOIN blog b
+                    ON p.blog_id = b.blog_id
+                    INNER JOIN post_category pc
+                    ON pc.post_id = p.post_id
+                    INNER JOIN category c
+                    ON pc.category_id = c.category_id 
+                    INNER JOIN USER u ON u.user_id=b.user_id
+                    LEFT JOIN post_atachment pa ON pa.post_id=p.        `post_id`   
+                    WHERE p.`post_status`='Active'         
+                    ORDER BY p.post_id DESC LIMIT 0,4
+
+
+SELECT post_comment.*,blog.`blog_title`,post.*,user.`first_name`,`last_name` FROM post_comment JOIN post ON post.`post_id`=post_comment.`post_id` JOIN blog ON blog.`blog_id`=post.blog_id
+JOIN USER ON user.`user_id`=post_comment.`user_id` WHERE blog.`user_id`=1 
+//commwnts data table
