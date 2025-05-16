@@ -20,8 +20,8 @@ $email_user->Host="smtp.gmail.com";
 $email_user->Port=587;
 $email_user->SMTPSecure=PHPMailer::ENCRYPTION_STARTTLS;
 $email_user->SMTPAuth=true;
-$email_user->Username='di733871@gmail.com';
-$email_user->Password="twuwlmprtxouwxca";
+$email_user->Username='';
+$email_user->Password="";
 ?>
 
 
